@@ -15,18 +15,11 @@ Resources:
         - IpProtocol: tcp
           FromPort: 6379
           ToPort: 6379
-      VpcId: vpc-0bd5eb748cf2e15a2
+      VpcId: vpc-00fff691ee0d71c09
       Tags:
         - { Key: Name, Value: !Sub '${AWS::StackName}-sg' }
 
-  SubnetGroup:
-    Type: AWS::ElastiCache::SubnetGroup
-    Properties:
-      CacheSubnetGroupName: !Sub ${AWS::StackName}-subnetgroup
-      Description: !Sub Subnet Group for ${AWS::StackName} Redis cluster
-      SubnetIds:
-        - subnet-037c5257445653906
-        - subnet-0403c19d4f228cf6e
+
 
   ParameterGroupRedis60:
     Type: 'AWS::ElastiCache::ParameterGroup'
@@ -44,7 +37,7 @@ Resources:
       AutoMinorVersionUpgrade: true
       CacheNodeType: cache.t2.micro
       CacheParameterGroupName: !Ref ParameterGroupRedis60
-      CacheSubnetGroupName: !Ref SubnetGroup
+      CacheSubnetGroupName: lk-subnet
       Engine: redis
       EngineVersion: 5.0.6
       ReplicasPerNodeGroup: 1
@@ -63,4 +56,3 @@ Outputs:
     Value: !GetAtt ReplicationGroup.PrimaryEndPoint.Address
   PrimaryPort:
     Value: !GetAtt ReplicationGroup.PrimaryEndPoint.Port
-

@@ -196,6 +196,8 @@ pipeline {
 
           cat parameters.json
 
+          echo "lakhan"
+
 
 
 

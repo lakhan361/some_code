@@ -94,6 +94,8 @@ pipeline {
           ls
           cat parameters.json
           echo $INSTANCE_TYPE
+          chmod +x testscript.sh
+          ./testscript.sh
           '''
       }
     }

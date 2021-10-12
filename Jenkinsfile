@@ -187,19 +187,11 @@ pipeline {
       steps {
 
           sh '''#!/bin/bash -xe
-
           CURRENT_DIRECTORY=`pwd`
-
           cd $CURRENT_DIRECTORY
-
           ls
-
           cat parameters.json
-
-          echo "lakhan"
-
-
-
+          echo $INSTANCE_TYPE
 
           '''
 

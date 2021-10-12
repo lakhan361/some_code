@@ -190,7 +190,7 @@ pipeline {
 
           CURRENT_DIRECTORY=`pwd`
 
-          cd CURRENT_DIRECTORY
+          cd $CURRENT_DIRECTORY
 
           ls
 

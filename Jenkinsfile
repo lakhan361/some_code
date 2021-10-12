@@ -194,6 +194,8 @@ pipeline {
 
           ls
 
+          cat parameters.json
+
 
 
 

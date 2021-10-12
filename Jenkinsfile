@@ -55,6 +55,11 @@ pipeline {
       defaultValue: "100",
       description: 'PRODUCT_OWNER'
     )
+    string (
+      name : 'StackNamePrefix',
+      defaultValue: "lAKHAN",
+    )
+
     string(
       description: 'Kafka Configuration ARN',
       name: 'CONFIGURATION_ARN'

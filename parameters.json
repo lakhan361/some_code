@@ -2,122 +2,128 @@
 
     {
 
-      "ParameterKey": "Environment",
+    "ParameterKey": "Environment",
 
-      "ParameterValue": "${ENVIRONMENT}"
+    "ParameterValue": "${ENVIRONMENT}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "PrivateSubnetOne",
+    "ParameterKey": "PrivateSubnetOne",
 
-      "ParameterValue": "${PRIVATE_SUBNET_GROUP_ONE}"
+    "ParameterValue": "${PRIVATE_SUBNET_GROUP_ONE}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "PrivateSubnetTwo",
+    "ParameterKey": "PrivateSubnetTwo",
 
-      "ParameterValue": "${PRIVATE_SUBNET_GROUP_TWO}"
+    "ParameterValue": "${PRIVATE_SUBNET_GROUP_TWO}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "PrivateSubnetThree",
+    "ParameterKey": "PrivateSubnetThree",
 
-      "ParameterValue": "${PRIVATE_SUBNET_GROUP_THREE}"
+    "ParameterValue": "${PRIVATE_SUBNET_GROUP_THREE}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "InstanceType",
+    "ParameterKey": "InstanceType",
 
-      "ParameterValue": "${INSTANCE_TYPE}"
+    "ParameterValue": "${INSTANCE_TYPE}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "SecurityGroup",
+    "ParameterKey": "SecurityGroup",
 
-      "ParameterValue": "${SECURITY_GROUP}"
+    "ParameterValue": "${SECURITY_GROUP}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "ClusterName",
+    "ParameterKey": "ClusterName",
 
-      "ParameterValue": "${CLUSTER_NAME}"
+    "ParameterValue": "${CLUSTER_NAME}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "ClusterVersion",
+    "ParameterKey": "ClusterVersion",
 
-      "ParameterValue": "${CLUSTER_VERSION}"
+    "ParameterValue": "${CLUSTER_VERSION}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "Purpose",
+    "ParameterKey": "Purpose",
 
-      "ParameterValue": "${PURPOSE}"
+    "ParameterValue": "${PURPOSE}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "KMSKeyARN",
+    "ParameterKey": "KMSKeyARN",
 
-      "ParameterValue": "${KMS_KEY_ARN}"
+    "ParameterValue": "${KMS_KEY_ARN}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "VolumeSize",
+    "ParameterKey": "VolumeSize",
 
-      "ParameterValue": "${VOLUME_SIZE}"
+    "ParameterValue": "${VOLUME_SIZE}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "ConfigurationARN",
+    "ParameterKey": "ConfigurationARN",
 
-      "ParameterValue": "${CONFIGURATION_ARN}"
+    "ParameterValue": "${CONFIGURATION_ARN}"
 
-    },
+  },
 
-    {
+  {
 
-      "ParameterKey": "LogGroupName",
+    "ParameterKey": "LogGroupName",
 
-      "ParameterValue": "${LOG_GROUP_NAME}"
+    "ParameterValue": "${LOG_GROUP_NAME}"
 
-    },
+  },
 
-    {
+{
 
-      "ParameterKey": "RetentionInDays",
+  "ParameterKey": "StackNamePrefix",
 
-      "ParameterValue": "${LOG_RETENTION}"
+  "ParameterValue": "${StackNamePrefix}"
 
-    },
+},
+  {
 
-    {
+    "ParameterKey": "RetentionInDays",
 
-      "ParameterKey": "NumberofBrokers",
+    "ParameterValue": "${LOG_RETENTION}"
 
-      "ParameterValue": "${NO_BROKER_NODES}"
+  },
 
-    }
+  {
 
-  ] 
+    "ParameterKey": "NumberofBrokers",
+
+    "ParameterValue": "${NO_BROKER_NODES}"
+
+  }
+  ]

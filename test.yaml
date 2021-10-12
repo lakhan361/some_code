@@ -15,7 +15,7 @@ Resources:
         - IpProtocol: tcp
           FromPort: 6379
           ToPort: 6379
-      VpcId: vpc-0507abb7448813c79
+      VpcId: vpc-0bd5eb748cf2e15a2
       Tags:
         - { Key: Name, Value: !Sub '${AWS::StackName}-sg' }
 
@@ -25,8 +25,8 @@ Resources:
       CacheSubnetGroupName: !Sub ${AWS::StackName}-subnetgroup
       Description: !Sub Subnet Group for ${AWS::StackName} Redis cluster
       SubnetIds:
-        - subnet-0e20812b9f90382df
-        - subnet-01af1a1a2c133b16c
+        - subnet-037c5257445653906
+        - subnet-0403c19d4f228cf6e
 
   ParameterGroupRedis60:
     Type: 'AWS::ElastiCache::ParameterGroup'

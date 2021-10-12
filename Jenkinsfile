@@ -193,7 +193,7 @@ pipeline {
           cd CURRENT_DIRECTORY
 
           ls
-          
+
 
 
 

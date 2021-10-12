@@ -56,8 +56,8 @@ pipeline {
       description: 'PRODUCT_OWNER'
     )
     string(
-      description: 'Kafka Configuration ARN'
-      name: 'CONFIGURATION_ARN',
+      description: 'Kafka Configuration ARN',
+      name: 'CONFIGURATION_ARN'
     )
     string(
       name: 'AWS_REGION',

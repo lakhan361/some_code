@@ -190,7 +190,12 @@ pipeline {
 
           CURRENT_DIRECTORY=`pwd`
 
-          echo $CURRENT_DIRECTORY
+          cd CURRENT_DIRECTORY
+
+          ls
+          
+
+
 
           '''
 

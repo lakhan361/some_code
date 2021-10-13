@@ -8,7 +8,7 @@
       "VpcId":{
          "Type":"String",
          "Default" : "vpc-0607ea6166a8a7c44"
-      },
+      }
    },
    "Resources":{
       "SecurityGroup":{
@@ -60,7 +60,6 @@
             "AutomaticFailoverEnabled":true,
             "AutoMinorVersionUpgrade":true,
             "CacheNodeType":"cache.t2.micro",
-            "cache.t2.micro",
             "CacheParameterGroupName":{
                "Ref":"ParameterGroupRedis60"
             },

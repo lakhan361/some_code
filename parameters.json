@@ -2,5 +2,9 @@
     {
     "ParameterKey": "StackNamePrefix",
     "ParameterValue": "${StackName_Prefix}"
-  }
+  },
+  {
+  "ParameterKey": "CacheNodeType",
+  "ParameterValue": "${CACHENODETYPE}"
+}
   ]

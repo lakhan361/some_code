@@ -19,7 +19,7 @@
 
         "ParameterKey": "CacheType",
 
-        "ParameterValue": "cachetype"
+        "ParameterValue": "${cachetype}"
 
     },
 

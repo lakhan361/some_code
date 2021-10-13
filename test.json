@@ -11,6 +11,7 @@
       },
       "CacheNodeType":{
          "Type":"String",
+         "Default": "cache.t2.micro"
       }
    },
    "Resources":{

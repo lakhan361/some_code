@@ -51,6 +51,13 @@ name : 'cacheengineversion',
 defaultValue: '5.0.6',
 description: 'cacheengineversion'
 )
+
+string (
+name : 'vpc_id',
+defaultValue: 'test123',
+description: 'vpc_id'
+)
+
   }
   stages {
     stage('CF Stack Opreation ') {

@@ -139,7 +139,7 @@
 
         "ParameterKey": "VpcId",
 
-        "ParameterValue": "vpc_id"
+        "ParameterValue": "${vpc_id}"
 
     },
 

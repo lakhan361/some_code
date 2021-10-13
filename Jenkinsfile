@@ -46,6 +46,11 @@ defaultValue: 'true',
 description: 'transitencryptionenabled'
 )
 
+string (
+name : 'cacheengineversion',
+defaultValue: '5.0.6',
+description: 'cacheengineversion'
+)
   }
   stages {
     stage('CF Stack Opreation ') {

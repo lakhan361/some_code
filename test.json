@@ -34,7 +34,7 @@
             ]
          }
       },
-      
+
       "ParameterGroupRedis60":{
          "Type":"AWS::ElastiCache::ParameterGroup",
          "Properties":{
@@ -57,9 +57,7 @@
             "CacheParameterGroupName":{
                "Ref":"ParameterGroupRedis60"
             },
-            "CacheSubnetGroupName":{
-               "lakhan-test"
-            },
+            "CacheSubnetGroupName":  "lakhan-test",
             "Engine":"redis",
             "EngineVersion":"5.0.6",
             "ReplicasPerNodeGroup":1,

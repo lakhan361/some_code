@@ -4,6 +4,9 @@
    "Parameters":{
       "StackNamePrefix":{
          "Type":"String"
+      },
+      "VpcId":{
+         "Type":"String"
       }
    },
    "Resources":{
@@ -23,7 +26,9 @@
                   "ToPort":6379
                }
             ],
-            "VpcId":"vpc-0607ea6166a8a7c44",
+            "VpcId":{
+              "Ref": "VpcId"
+            },
             "Tags":[
                {
                   "Key":"Name",

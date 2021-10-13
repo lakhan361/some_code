@@ -23,7 +23,7 @@
                   "ToPort":6379
                }
             ],
-            "VpcId":"vpc-0d9ad4e77795af306",
+            "VpcId":"vpc-0607ea6166a8a7c44",
             "Tags":[
                {
                   "Key":"Name",

@@ -7,7 +7,7 @@
       },
       "VpcId":{
          "Type":"String",
-         "default" : "vpc-0607ea6166a8a7c44"
+         "Default" : "vpc-0607ea6166a8a7c44"
       }
    },
    "Resources":{

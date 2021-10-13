@@ -16,6 +16,12 @@ pipeline {
    description: 'INSTANCE_TYPE'
  )
 
+ string (
+name : 'STACK_NAME',
+defaultValue: 'aws-ElastiCache',
+description: 'Test'
+)
+
   }
   stages {
     stage('CF Stack Opreation ') {

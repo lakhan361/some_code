@@ -10,6 +10,12 @@ pipeline {
       choices: ["partner-dev","travel-qa", "travel-prod", "travel-stage"],
       description: 'ENVIRONMENT'
     )
+    string (
+   name : 'cacheinstancetype',
+   defaultValue: 'cache.t2.micro', 
+   description: 'INSTANCE_TYPE'
+ )
+
   }
   stages {
     stage('CF Stack Opreation ') {

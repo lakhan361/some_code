@@ -27,7 +27,7 @@
 
         "ParameterKey": "NumNodeGroups",
 
-        "ParameterValue": "num_node_groups"
+        "ParameterValue": "${num_node_groups}"
 
     },
 

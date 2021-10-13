@@ -10,16 +10,22 @@ pipeline {
       choices: ["partner-dev","travel-qa", "travel-prod", "travel-stage"],
       description: 'ENVIRONMENT'
     )
+
+    string (
+   name : 'STACK_NAME',
+   defaultValue: 'aws-ElastiCache',
+   description: 'Test'
+   )
+
     string (
    name : 'cacheinstancetype',
    defaultValue: 'cache.t2.micro',
    description: 'INSTANCE_TYPE'
  )
-
  string (
-name : 'STACK_NAME',
-defaultValue: 'aws-ElastiCache',
-description: 'Test'
+name : 'num_node_groups',
+defaultValue: '1',
+description: 'num_node_groups'
 )
 
   }

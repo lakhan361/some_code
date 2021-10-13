@@ -14,10 +14,15 @@ pipeline {
       name : 'INSTANCE_TYPE',
       defaultValue: 'kafka.m5.xlarge',
       description: 'INSTANCE_TYPE'
-    )
+    )StackNamePrefix
     string (
       name : 'VpcId',
       defaultValue: 'vpc-0607ea6166a8a7c44',
+      description: 'VpcId'
+    )
+    string (
+      name : 'StackNamePrefix',
+      defaultValue: 'lakhan',
       description: 'VpcId'
     )
   }

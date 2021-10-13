@@ -59,8 +59,7 @@
             "AtRestEncryptionEnabled":true,
             "AutomaticFailoverEnabled":true,
             "AutoMinorVersionUpgrade":true,
-            "CacheNodeType":"cache.t2.micro"
-            ,
+            "CacheNodeType":"cache.t2.micro",
             "cache.t2.micro",
             "CacheParameterGroupName":{
                "Ref":"ParameterGroupRedis60"

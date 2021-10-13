@@ -1,102 +1,577 @@
-{
-   "AWSTemplateFormatVersion":"2010-09-09",
-   "Description":"Redis Playground - ElastiCache for Redis cluster",
-   "Parameters":{
-      "StackNamePrefix":{
-         "Type":"String"
-      },
-      "VpcId":{
-         "Type":"String",
-         "Default" : "vpc-0c7402ff0fa9642df"
-      },
-      "CacheNodeType":{
-         "Type":"String"
-      }
-   },
-   "Resources":{
-      "SecurityGroup":{
-         "Type":"AWS::EC2::SecurityGroup",
-         "Properties":{
-            "GroupDescription":{
-               "Fn::Sub":"Security group for ${AWS::StackName}"
-            },
-            "GroupName":{
-               "Fn::Sub":"${AWS::StackName}-sg"
-            },
-            "SecurityGroupIngress":[
-               {
-                  "IpProtocol":"tcp",
-                  "FromPort":6379,
-                  "ToPort":6379
-               }
-            ],
-            "VpcId":{
-              "Ref": "VpcId"
-            },
-            "Tags":[
-               {
-                  "Key":"Name",
-                  "Value":{
-                     "Fn::Sub":"${AWS::StackName}-sg"
-                  }
-               }
-            ]
-         }
-      },
+"AWSTemplateFormatVersion": "2010-09-09",
 
-      "ParameterGroupRedis60":{
-         "Type":"AWS::ElastiCache::ParameterGroup",
-         "Properties":{
-            "Description":{
-               "Fn::Sub":"Parameter Group for ${AWS::StackName} Redis cluster"
-            },
-            "CacheParameterGroupFamily":"redis5.0",
-            "Properties":{
-               "maxmemory-policy":"allkeys-lru"
-            }
-         }
-      },
-      "ReplicationGroup":{
-         "Type":"AWS::ElastiCache::ReplicationGroup",
-         "Properties":{
-            "AtRestEncryptionEnabled":true,
-            "AutomaticFailoverEnabled":true,
-            "AutoMinorVersionUpgrade":true,
-            "CacheNodeType":{
-              "Ref": "CacheNodeType"
-            },
-            "CacheParameterGroupName":{
-               "Ref":"ParameterGroupRedis60"
-            },
-            "CacheSubnetGroupName":  "lakhan-test",
-            "Engine":"redis",
-            "EngineVersion":"5.0.6",
-            "ReplicasPerNodeGroup":1,
-            "PreferredMaintenanceWindow":"mon:07:30-mon:08:30",
-            "ReplicationGroupId":{
-               "Fn::Sub":"${AWS::StackName}"
-            },
-            "ReplicationGroupDescription":{
-               "Fn::Sub":"Redis Cluster ${AWS::StackName}"
-            },
-            "SecurityGroupIds":[
-               "Fn::GetAtt":[
-                  "SecurityGroup",
-                  "GroupId"
-               ]
-            ],
-            "SnapshotRetentionLimit":0,
-            "TransitEncryptionEnabled":true,
-            "MultiAZEnabled":true,
-            "Tags":[
-               {
-                  "Key":"Name",
-                  "Value":{
-                     "Fn::Sub":"${AWS::StackName}"
-                  }
-               }
-            ]
-         }
-      }
-   }
+"Description": "Create a cache cluster",
+
+"Parameters": {
+
+"CacheInstanceType": {
+
+"Type": "String",
+
+"Default": "cache.t2.medium",
+
+"AllowedValues": [
+
+"cache.t2.micro",
+
+"cache.t2.small",
+
+"cache.t2.medium",
+
+"cache.m3.medium",
+
+"cache.m3.large",
+
+"cache.m3.xlarge",
+
+"cache.m3.2xlarge",
+
+"cache.m5.large",
+
+"cache.m5.xlarge",
+
+"cache.m5.2xlarge",
+
+"cache.m5.4xlarge",
+
+"cache.m5.12xlarge",
+
+"cache.m5.24xlarge"
+
+],
+
+"Description": "Enter cache.t2.micro, cache.m3.medium, or cache.m1.large. Default is t2.medium."
+
+},
+
+"CacheSubnetGroup": {
+
+"Type": "String",
+
+"Default": "redis-server-subnet-group",
+
+"Description": "name of the subnet group for redis"
+
+},
+
+"CacheType": {
+
+"Type": "String",
+
+"Default": "redis",
+
+"AllowedValues": [
+
+"redis",
+
+"memcached"
+
+],
+
+"Description": "This is to define the cache type "
+
+},
+
+"NumNodeGroups": {
+
+"Type": "String",
+
+"Description": "required number of nodes of elastic cache",
+
+"AllowedValues": [
+
+"1",
+
+"2",
+
+"3",
+
+"4",
+
+"5"
+
+],
+
+"Default": "1"
+
+},
+
+"CacheEngineVersion": {
+
+"Type": "String",
+
+"Default": "5.0.6",
+
+"AllowedValues": [
+
+"5.0.6",
+
+"4.0.10",
+
+"3.2.10",
+
+"3.2.6"
+
+],
+
+"Description": "The version of cache engine you want to setup"
+
+},
+
+"CachePort": {
+
+"Type": "String",
+
+"Default": "6379",
+
+"Description": "port for redis cache"
+
+},
+
+"CacheName": {
+
+"Type": "String",
+
+"Description": "The name of the cache "
+
+},
+
+"Environment": {
+
+"Type": "String",
+
+"Default": "Travel-QA",
+
+"Description": "Name of environment where it is getting deployed"
+
+},
+
+
+
+"Product": {
+
+"Type": "String",
+
+"Default": "Enablement",
+
+"Description": "Name of product for which we need to create the elastic cache"
+
+},
+
+"Purpose": {
+
+"Type": "String",
+
+"Default": "Business",
+
+"Description": "Purpose of applciation"
+
+},
+
+"AtRestEncryptionEnabled": {
+
+"Description": "If Encryption is to be enabled",
+
+"Type": "String",
+
+"Default": "true",
+
+"AllowedValues": [
+
+"true",
+
+"false"
+
+]
+
+},
+
+"TransitEncryptionEnabled": {
+
+"Description": "If Encryption is to be enabled",
+
+"Type": "String",
+
+"Default": "true",
+
+"AllowedValues": [
+
+"true",
+
+"false"
+
+]
+
+},
+
+"KmsKeyID": {
+
+"Type": "String",
+
+"Description": " KMS key id for encryption"
+
+},
+
+"CacheReplicaPerNodeGroup": {
+
+"Type": "String",
+
+"Description": " Cache replica count per node group "
+
+},
+
+"PreferredMaintenanceWindow": {
+
+"Type": "String",
+
+"Description": " Weekly maintainance time window "
+
+},
+
+"SnapshotWindow": {
+
+"Type": "String",
+
+"Description": " Time when daily snapshot will began"
+
+},
+
+"SnapshotRetentionLimit": {
+
+"Type": "String",
+
+"Description": " Number of days for which ElastiCache retains automatic snapshots before deleting them"
+
+},
+
+        "VpcId":{
+
+            "Type": "String",
+
+"Description": " VPC for cache SG "
+
+        },
+
+"ClusterModeCache":{
+
+            "Type": "String",
+
+"Description": " Wether you want to create cache clustermode or not "
+
+        }
+
+},
+
+"Conditions": {
+
+"ClusterMode":{"Fn::Equals" : [{"Ref":"ClusterModeCache"}, "true"]}
+
+},
+
+    "Mappings" : {
+
+        "ClusterModeCacheParameterGroupMap" : {
+
+            "5.0.6": {"ParameterGroupName" : "default.redis5.0.cluster.on"},
+
+"4.0.10": {"ParameterGroupName" : "default.redis4.0.cluster.on"},
+
+"3.2.10": {"ParameterGroupName" : "default.redis3.2.cluster.on"},
+
+"3.2.6": {"ParameterGroupName" : "default.redis3.2.cluster.on"}
+
+        },
+
+"CacheParameterGroupMap" : {
+
+            "5.0.6": {"ParameterGroupName" : "default.redis5.0"},
+
+"4.0.10": {"ParameterGroupName" : "default.redis4.0"},
+
+"3.2.10": {"ParameterGroupName" : "default.redis3.2"},
+
+"3.2.6": {"ParameterGroupName" : "default.redis3.2"}
+
+        }
+
+    },
+
+"Resources": {
+
+"ElasticacheSecurityGroup": {
+
+"Type": "AWS::EC2::SecurityGroup",
+
+"Properties": {
+
+"GroupName": {
+
+"Fn::Join": [
+
+"-",
+
+[
+
+{
+
+"Ref": "CacheName"
+
+},
+
+"cache-sg"
+
+]
+
+]
+
+},
+
+"GroupDescription": "Allow client to connect to cache",
+
+"VpcId": {
+
+"Ref": "VpcId"
+
+},
+
+"Tags": [
+
+{
+
+"Key": "Name",
+
+"Value": {
+
+"Fn::Join": [
+
+"-",
+
+[
+
+{
+
+"Ref": "CacheName"
+
+},
+
+"cache-sg"
+
+]
+
+]
+
 }
+
+},
+
+{
+
+"Key": "Product",
+
+"Value": {
+
+"Ref": "Product"
+
+}
+
+}
+
+]
+
+}
+
+},
+
+"ElastiCacheReplicationGroup": {
+
+"Type": "AWS::ElastiCache::ReplicationGroup",
+
+"Properties": {
+
+"ReplicationGroupId": {
+
+"Ref": "CacheName"
+
+},
+
+"AtRestEncryptionEnabled": {
+
+"Ref": "AtRestEncryptionEnabled"
+
+},
+
+"TransitEncryptionEnabled": {
+
+"Ref": "TransitEncryptionEnabled"
+
+},
+
+"AutomaticFailoverEnabled": true,
+
+"MultiAZEnabled": true,
+
+"NumNodeGroups": {
+
+"Ref": "NumNodeGroups"
+
+},
+
+"ReplicasPerNodeGroup": {
+
+"Ref": "CacheReplicaPerNodeGroup"
+
+},
+
+                "CacheParameterGroupName" : {
+
+
+
+"Fn::If":["ClusterMode", { "Fn::FindInMap" : [ "ClusterModeCacheParameterGroupMap", { "Ref" : "CacheEngineVersion" }, "ParameterGroupName"]},
+
+{ "Fn::FindInMap" : [ "CacheParameterGroupMap", { "Ref" : "CacheEngineVersion" }, "ParameterGroupName"]}
+
+]
+
+},
+
+"CacheNodeType": {
+
+"Ref": "CacheInstanceType"
+
+},
+
+"CacheSubnetGroupName": {
+
+"Ref": "CacheSubnetGroup"
+
+},
+
+"Engine": {
+
+"Ref": "CacheType"
+
+},
+
+"KmsKeyId": {
+
+"Ref": "KmsKeyID"
+
+},
+
+"EngineVersion": {
+
+"Ref": "CacheEngineVersion"
+
+},
+
+"Port": {
+
+"Ref": "CachePort"
+
+},
+
+"ReplicationGroupDescription": "A redis cache cluster",
+
+"SecurityGroupIds": [
+
+{
+
+"Ref": "ElasticacheSecurityGroup"
+
+}
+
+],
+
+"PreferredMaintenanceWindow": {
+
+"Ref": "PreferredMaintenanceWindow"
+
+},
+
+"SnapshotRetentionLimit": {
+
+"Ref": "SnapshotRetentionLimit"
+
+},
+
+"SnapshotWindow": {
+
+"Ref": "SnapshotWindow"
+
+},
+
+"Tags": [
+
+{
+
+"Key": "Name",
+
+"Value": {
+
+"Ref": "CacheName"
+
+}
+
+},
+
+{
+
+"Key": "Environment",
+
+"Value": {
+
+"Ref": "Environment"
+
+}
+
+},
+
+{
+
+"Key": "Product",
+
+"Value": {
+
+"Ref": "Product"
+
+}
+
+},
+
+{
+
+"Key": "Purpose",
+
+"Value": {
+
+"Ref": "Purpose"
+
+}
+
+}
+
+]
+
+}
+
+}
+
+},
+
+"Outputs": {
+
+"ReplicationGroupName": {
+
+"Value": {
+
+"Ref": "ElastiCacheReplicationGroup"
+
+},
+
+"Description": "The arn of elastic cache"
+
+}
+
+}
+
+} 

@@ -1,10 +1,154 @@
 [
+
     {
-    "ParameterKey": "StackNamePrefix",
-    "ParameterValue": "${StackName_Prefix}"
-  },
-  {
-  "ParameterKey": "CacheNodeType",
-  "ParameterValue": "${CACHENODETYPE}"
-}
+
+        "ParameterKey": "CacheInstanceType",
+
+        "ParameterValue": "cacheinstancetype"
+
+    },
+
+    {
+
+        "ParameterKey": "CacheSubnetGroup",
+
+        "ParameterValue": "cachesubnetgroup"
+
+    },
+
+    {
+
+        "ParameterKey": "CacheType",
+
+        "ParameterValue": "cachetype"
+
+    },
+
+    {
+
+        "ParameterKey": "NumNodeGroups",
+
+        "ParameterValue": "num_node_groups"
+
+    },
+
+    {
+
+        "ParameterKey": "CacheEngineVersion",
+
+        "ParameterValue": "cacheengineversion"
+
+    },
+
+    {
+
+        "ParameterKey": "CachePort",
+
+        "ParameterValue": "cacheport"
+
+    },
+
+    {
+
+        "ParameterKey": "CacheName",
+
+        "ParameterValue": "cachename"
+
+    },
+
+    {
+
+        "ParameterKey": "Environment",
+
+        "ParameterValue": "environment"
+
+    },
+
+    {
+
+        "ParameterKey": "Product",
+
+        "ParameterValue": "product"
+
+    },
+
+    {
+
+        "ParameterKey": "Purpose",
+
+        "ParameterValue": "purpose"
+
+    },
+
+    {
+
+        "ParameterKey": "AtRestEncryptionEnabled",
+
+        "ParameterValue": "atrestencryptionenabled"
+
+    },
+
+    {
+
+        "ParameterKey": "TransitEncryptionEnabled",
+
+        "ParameterValue": "transitencryptionenabled"
+
+    },
+
+    {
+
+        "ParameterKey": "KmsKeyID",
+
+        "ParameterValue": "kms_key_id"
+
+    },
+
+    {
+
+        "ParameterKey": "CacheReplicaPerNodeGroup",
+
+        "ParameterValue": "cache_replica_per_nodegroup"
+
+    },
+
+    {
+
+        "ParameterKey": "SnapshotRetentionLimit",
+
+        "ParameterValue": "snapshot_retention_limit"
+
+    },
+
+    {
+
+        "ParameterKey": "SnapshotWindow",
+
+        "ParameterValue": "snapshot_window"
+
+    },
+
+    {
+
+        "ParameterKey": "PreferredMaintenanceWindow",
+
+        "ParameterValue": "maintenance_window"
+
+    },
+
+    {
+
+        "ParameterKey": "VpcId",
+
+        "ParameterValue": "vpc_id"
+
+    },
+
+    {
+
+    "ParameterKey": "ClusterModeCache",
+
+    "ParameterValue": "cache_cluster_mode"
+
+    }
   ]

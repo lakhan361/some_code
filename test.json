@@ -68,12 +68,12 @@
             "ReplicationGroupDescription":{
                "Fn::Sub":"Redis Cluster ${AWS::StackName}"
             },
-            "SecurityGroupIds":{
+            "SecurityGroupIds":[
                "Fn::GetAtt":[
                   "SecurityGroup",
                   "GroupId"
                ]
-            },
+            ],
             "SnapshotRetentionLimit":0,
             "TransitEncryptionEnabled":true,
             "MultiAZEnabled":true,

@@ -4,574 +4,602 @@
 
 "Parameters": {
 
-"CacheInstanceType": {
+  "CacheInstanceType": {
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "cache.t2.medium",
+    "Default": "cache.t2.medium",
 
-"AllowedValues": [
+    "AllowedValues": [
 
-"cache.t2.micro",
+      "cache.t2.micro",
 
-"cache.t2.small",
+      "cache.t2.small",
 
-"cache.t2.medium",
+      "cache.t2.medium",
 
-"cache.m3.medium",
+      "cache.m3.medium",
 
-"cache.m3.large",
+      "cache.m3.large",
 
-"cache.m3.xlarge",
+      "cache.m3.xlarge",
 
-"cache.m3.2xlarge",
+      "cache.m3.2xlarge",
 
-"cache.m5.large",
+      "cache.m5.large",
 
-"cache.m5.xlarge",
+      "cache.m5.xlarge",
 
-"cache.m5.2xlarge",
+      "cache.m5.2xlarge",
 
-"cache.m5.4xlarge",
+      "cache.m5.4xlarge",
 
-"cache.m5.12xlarge",
+      "cache.m5.12xlarge",
 
-"cache.m5.24xlarge"
+      "cache.m5.24xlarge"
 
-],
+    ],
 
-"Description": "Enter cache.t2.micro, cache.m3.medium, or cache.m1.large. Default is t2.medium."
+    "Description": "Enter cache.t2.micro, cache.m3.medium, or cache.m1.large. Default is t2.medium."
 
-},
+  },
 
-"CacheSubnetGroup": {
+  "CacheSubnetGroup": {
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "redis-server-subnet-group",
+    "Default": "redis-server-subnet-group",
 
-"Description": "name of the subnet group for redis"
+    "Description": "name of the subnet group for redis"
 
-},
+  },
 
-"CacheType": {
+  "CacheType": {
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "redis",
+    "Default": "redis",
 
-"AllowedValues": [
+    "AllowedValues": [
 
-"redis",
+      "redis",
 
-"memcached"
+      "memcached"
 
-],
+    ],
 
-"Description": "This is to define the cache type "
+    "Description": "This is to define the cache type "
 
-},
+  },
 
-"NumNodeGroups": {
+  "NumNodeGroups": {
 
-"Type": "String",
+    "Type": "String",
 
-"Description": "required number of nodes of elastic cache",
+    "Description": "required number of nodes of elastic cache",
 
-"AllowedValues": [
+    "AllowedValues": [
 
-"1",
+      "1",
 
-"2",
+      "2",
 
-"3",
+      "3",
 
-"4",
+      "4",
 
-"5"
+      "5"
 
-],
+    ],
 
-"Default": "1"
+    "Default": "1"
 
-},
+  },
 
-"CacheEngineVersion": {
+  "CacheEngineVersion": {
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "5.0.6",
+    "Default": "5.0.6",
 
-"AllowedValues": [
+    "AllowedValues": [
 
-"5.0.6",
+      "5.0.6",
 
-"4.0.10",
+      "4.0.10",
 
-"3.2.10",
+      "3.2.10",
 
-"3.2.6"
+      "3.2.6"
 
-],
+    ],
 
-"Description": "The version of cache engine you want to setup"
+    "Description": "The version of cache engine you want to setup"
 
-},
+  },
 
-"CachePort": {
+  "CachePort": {
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "6379",
+    "Default": "6379",
 
-"Description": "port for redis cache"
+    "Description": "port for redis cache"
 
-},
+  },
 
-"CacheName": {
+  "CacheName": {
 
-"Type": "String",
+    "Type": "String",
 
-"Description": "The name of the cache "
+    "Description": "The name of the cache "
 
-},
+  },
 
-"Environment": {
+  "Environment": {
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "Travel-QA",
+    "Default": "Travel-QA",
 
-"Description": "Name of environment where it is getting deployed"
+    "Description": "Name of environment where it is getting deployed"
 
-},
+  },
 
 
 
-"Product": {
+  "Product": {
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "Enablement",
+    "Default": "Enablement",
 
-"Description": "Name of product for which we need to create the elastic cache"
+    "Description": "Name of product for which we need to create the elastic cache"
 
-},
+  },
 
-"Purpose": {
+  "Purpose": {
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "Business",
+    "Default": "Business",
 
-"Description": "Purpose of applciation"
+    "Description": "Purpose of applciation"
 
-},
+  },
 
-"AtRestEncryptionEnabled": {
+  "AtRestEncryptionEnabled": {
 
-"Description": "If Encryption is to be enabled",
+    "Description": "If Encryption is to be enabled",
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "true",
+    "Default": "true",
 
-"AllowedValues": [
+    "AllowedValues": [
 
-"true",
+      "true",
 
-"false"
+      "false"
 
-]
+    ]
 
-},
+  },
 
-"TransitEncryptionEnabled": {
+  "TransitEncryptionEnabled": {
 
-"Description": "If Encryption is to be enabled",
+    "Description": "If Encryption is to be enabled",
 
-"Type": "String",
+    "Type": "String",
 
-"Default": "true",
+    "Default": "true",
 
-"AllowedValues": [
+    "AllowedValues": [
 
-"true",
+      "true",
 
-"false"
+      "false"
 
-]
+    ]
 
-},
+  },
 
-"KmsKeyID": {
+  "KmsKeyID": {
 
-"Type": "String",
+    "Type": "String",
 
-"Description": " KMS key id for encryption"
+    "Description": " KMS key id for encryption"
 
-},
+  },
 
-"CacheReplicaPerNodeGroup": {
+  "CacheReplicaPerNodeGroup": {
 
-"Type": "String",
+    "Type": "String",
 
-"Description": " Cache replica count per node group "
+    "Description": " Cache replica count per node group "
 
-},
+  },
 
-"PreferredMaintenanceWindow": {
+  "PreferredMaintenanceWindow": {
 
-"Type": "String",
+    "Type": "String",
 
-"Description": " Weekly maintainance time window "
+    "Description": " Weekly maintainance time window "
 
-},
+  },
 
-"SnapshotWindow": {
+  "SnapshotWindow": {
 
-"Type": "String",
+    "Type": "String",
 
-"Description": " Time when daily snapshot will began"
+    "Description": " Time when daily snapshot will began"
 
-},
+  },
 
-"SnapshotRetentionLimit": {
+  "SnapshotRetentionLimit": {
 
-"Type": "String",
+    "Type": "String",
 
-"Description": " Number of days for which ElastiCache retains automatic snapshots before deleting them"
+    "Description": " Number of days for which ElastiCache retains automatic snapshots before deleting them"
 
-},
+  },
 
-        "VpcId":{
+  "VpcId": {
 
-            "Type": "String",
+    "Type": "String",
 
-"Description": " VPC for cache SG "
+    "Description": " VPC for cache SG "
 
-        },
+  },
 
-"ClusterModeCache":{
+  "ClusterModeCache": {
 
-            "Type": "String",
+    "Type": "String",
 
-"Description": " Wether you want to create cache clustermode or not "
+    "Description": " Wether you want to create cache clustermode or not "
 
-        }
+  }
 
 },
 
 "Conditions": {
 
-"ClusterMode":{"Fn::Equals" : [{"Ref":"ClusterModeCache"}, "true"]}
+  "ClusterMode": {
+    "Fn::Equals": [{
+      "Ref": "ClusterModeCache"
+    }, "true"]
+  }
 
 },
 
-    "Mappings" : {
+"Mappings": {
 
-        "ClusterModeCacheParameterGroupMap" : {
+  "ClusterModeCacheParameterGroupMap": {
 
-            "5.0.6": {"ParameterGroupName" : "default.redis5.0.cluster.on"},
-
-"4.0.10": {"ParameterGroupName" : "default.redis4.0.cluster.on"},
-
-"3.2.10": {"ParameterGroupName" : "default.redis3.2.cluster.on"},
-
-"3.2.6": {"ParameterGroupName" : "default.redis3.2.cluster.on"}
-
-        },
-
-"CacheParameterGroupMap" : {
-
-            "5.0.6": {"ParameterGroupName" : "default.redis5.0"},
-
-"4.0.10": {"ParameterGroupName" : "default.redis4.0"},
-
-"3.2.10": {"ParameterGroupName" : "default.redis3.2"},
-
-"3.2.6": {"ParameterGroupName" : "default.redis3.2"}
-
-        }
-
+    "5.0.6": {
+      "ParameterGroupName": "default.redis5.0.cluster.on"
     },
+
+    "4.0.10": {
+      "ParameterGroupName": "default.redis4.0.cluster.on"
+    },
+
+    "3.2.10": {
+      "ParameterGroupName": "default.redis3.2.cluster.on"
+    },
+
+    "3.2.6": {
+      "ParameterGroupName": "default.redis3.2.cluster.on"
+    }
+
+  },
+
+  "CacheParameterGroupMap": {
+
+    "5.0.6": {
+      "ParameterGroupName": "default.redis5.0"
+    },
+
+    "4.0.10": {
+      "ParameterGroupName": "default.redis4.0"
+    },
+
+    "3.2.10": {
+      "ParameterGroupName": "default.redis3.2"
+    },
+
+    "3.2.6": {
+      "ParameterGroupName": "default.redis3.2"
+    }
+
+  }
+
+},
 
 "Resources": {
 
-"ElasticacheSecurityGroup": {
+  "ElasticacheSecurityGroup": {
 
-"Type": "AWS::EC2::SecurityGroup",
+    "Type": "AWS::EC2::SecurityGroup",
 
-"Properties": {
+    "Properties": {
 
-"GroupName": {
+      "GroupName": {
 
-"Fn::Join": [
+        "Fn::Join": [
 
-"-",
+          "-",
 
-[
+          [
 
-{
+            {
 
-"Ref": "CacheName"
+              "Ref": "CacheName"
 
-},
+            },
 
-"cache-sg"
+            "cache-sg"
 
-]
+          ]
 
-]
+        ]
 
-},
+      },
 
-"GroupDescription": "Allow client to connect to cache",
+      "GroupDescription": "Allow client to connect to cache",
 
-"VpcId": {
+      "VpcId": {
 
-"Ref": "VpcId"
+        "Ref": "VpcId"
 
-},
+      },
 
-"Tags": [
+      "Tags": [
 
-{
+        {
 
-"Key": "Name",
+          "Key": "Name",
 
-"Value": {
+          "Value": {
 
-"Fn::Join": [
+            "Fn::Join": [
 
-"-",
+              "-",
 
-[
+              [
 
-{
+                {
 
-"Ref": "CacheName"
+                  "Ref": "CacheName"
 
-},
+                },
 
-"cache-sg"
+                "cache-sg"
 
-]
+              ]
 
-]
+            ]
 
-}
+          }
 
-},
+        },
 
-{
+        {
 
-"Key": "Product",
+          "Key": "Product",
 
-"Value": {
+          "Value": {
 
-"Ref": "Product"
+            "Ref": "Product"
 
-}
+          }
 
-}
+        }
 
-]
+      ]
 
-}
+    }
 
-},
+  },
 
-"ElastiCacheReplicationGroup": {
+  "ElastiCacheReplicationGroup": {
 
-"Type": "AWS::ElastiCache::ReplicationGroup",
+    "Type": "AWS::ElastiCache::ReplicationGroup",
 
-"Properties": {
+    "Properties": {
 
-"ReplicationGroupId": {
+      "ReplicationGroupId": {
 
-"Ref": "CacheName"
+        "Ref": "CacheName"
 
-},
+      },
 
-"AtRestEncryptionEnabled": {
+      "AtRestEncryptionEnabled": {
 
-"Ref": "AtRestEncryptionEnabled"
+        "Ref": "AtRestEncryptionEnabled"
 
-},
+      },
 
-"TransitEncryptionEnabled": {
+      "TransitEncryptionEnabled": {
 
-"Ref": "TransitEncryptionEnabled"
+        "Ref": "TransitEncryptionEnabled"
 
-},
+      },
 
-"AutomaticFailoverEnabled": true,
+      "AutomaticFailoverEnabled": true,
 
-"MultiAZEnabled": true,
+      "MultiAZEnabled": true,
 
-"NumNodeGroups": {
+      "NumNodeGroups": {
 
-"Ref": "NumNodeGroups"
+        "Ref": "NumNodeGroups"
 
-},
+      },
 
-"ReplicasPerNodeGroup": {
+      "ReplicasPerNodeGroup": {
 
-"Ref": "CacheReplicaPerNodeGroup"
+        "Ref": "CacheReplicaPerNodeGroup"
 
-},
+      },
 
-                "CacheParameterGroupName" : {
+      "CacheParameterGroupName": {
 
 
 
-"Fn::If":["ClusterMode", { "Fn::FindInMap" : [ "ClusterModeCacheParameterGroupMap", { "Ref" : "CacheEngineVersion" }, "ParameterGroupName"]},
+        "Fn::If": ["ClusterMode", {
+            "Fn::FindInMap": ["ClusterModeCacheParameterGroupMap", {
+              "Ref": "CacheEngineVersion"
+            }, "ParameterGroupName"]
+          },
 
-{ "Fn::FindInMap" : [ "CacheParameterGroupMap", { "Ref" : "CacheEngineVersion" }, "ParameterGroupName"]}
+          {
+            "Fn::FindInMap": ["CacheParameterGroupMap", {
+              "Ref": "CacheEngineVersion"
+            }, "ParameterGroupName"]
+          }
 
-]
+        ]
 
-},
+      },
 
-"CacheNodeType": {
+      "CacheNodeType": {
 
-"Ref": "CacheInstanceType"
+        "Ref": "CacheInstanceType"
 
-},
+      },
 
-"CacheSubnetGroupName": {
+      "CacheSubnetGroupName": {
 
-"Ref": "CacheSubnetGroup"
+        "Ref": "CacheSubnetGroup"
 
-},
+      },
 
-"Engine": {
+      "Engine": {
 
-"Ref": "CacheType"
+        "Ref": "CacheType"
 
-},
+      },
 
-"KmsKeyId": {
+      "KmsKeyId": {
 
-"Ref": "KmsKeyID"
+        "Ref": "KmsKeyID"
 
-},
+      },
 
-"EngineVersion": {
+      "EngineVersion": {
 
-"Ref": "CacheEngineVersion"
+        "Ref": "CacheEngineVersion"
 
-},
+      },
 
-"Port": {
+      "Port": {
 
-"Ref": "CachePort"
+        "Ref": "CachePort"
 
-},
+      },
 
-"ReplicationGroupDescription": "A redis cache cluster",
+      "ReplicationGroupDescription": "A redis cache cluster",
 
-"SecurityGroupIds": [
+      "SecurityGroupIds": [
 
-{
+        {
 
-"Ref": "ElasticacheSecurityGroup"
+          "Ref": "ElasticacheSecurityGroup"
 
-}
+        }
 
-],
+      ],
 
-"PreferredMaintenanceWindow": {
+      "PreferredMaintenanceWindow": {
 
-"Ref": "PreferredMaintenanceWindow"
+        "Ref": "PreferredMaintenanceWindow"
 
-},
+      },
 
-"SnapshotRetentionLimit": {
+      "SnapshotRetentionLimit": {
 
-"Ref": "SnapshotRetentionLimit"
+        "Ref": "SnapshotRetentionLimit"
 
-},
+      },
 
-"SnapshotWindow": {
+      "SnapshotWindow": {
 
-"Ref": "SnapshotWindow"
+        "Ref": "SnapshotWindow"
 
-},
+      },
 
-"Tags": [
+      "Tags": [
 
-{
+        {
 
-"Key": "Name",
+          "Key": "Name",
 
-"Value": {
+          "Value": {
 
-"Ref": "CacheName"
+            "Ref": "CacheName"
 
-}
+          }
 
-},
+        },
 
-{
+        {
 
-"Key": "Environment",
+          "Key": "Environment",
 
-"Value": {
+          "Value": {
 
-"Ref": "Environment"
+            "Ref": "Environment"
 
-}
+          }
 
-},
+        },
 
-{
+        {
 
-"Key": "Product",
+          "Key": "Product",
 
-"Value": {
+          "Value": {
 
-"Ref": "Product"
+            "Ref": "Product"
 
-}
+          }
 
-},
+        },
 
-{
+        {
 
-"Key": "Purpose",
+          "Key": "Purpose",
 
-"Value": {
+          "Value": {
 
-"Ref": "Purpose"
+            "Ref": "Purpose"
 
-}
+          }
 
-}
+        }
 
-]
+      ]
 
-}
+    }
 
-}
+  }
 
 },
 
 "Outputs": {
 
-"ReplicationGroupName": {
+  "ReplicationGroupName": {
 
-"Value": {
+    "Value": {
 
-"Ref": "ElastiCacheReplicationGroup"
+      "Ref": "ElastiCacheReplicationGroup"
 
-},
+    },
 
-"Description": "The arn of elastic cache"
+    "Description": "The arn of elastic cache"
+
+  }
 
 }
 
 }
-
-} 

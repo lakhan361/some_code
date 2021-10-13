@@ -34,21 +34,7 @@
             ]
          }
       },
-      "SubnetGroup":{
-         "Type":"AWS::ElastiCache::SubnetGroup",
-         "Properties":{
-            "CacheSubnetGroupName":{
-               "Fn::Sub":"${AWS::StackName}-subnetgroup"
-            },
-            "Description":{
-               "Fn::Sub":"Subnet Group for ${AWS::StackName} Redis cluster"
-            },
-            "SubnetIds":[
-               "subnet-0975560927861475c",
-               "subnet-08bcf96fab867402f"
-            ]
-         }
-      },
+      
       "ParameterGroupRedis60":{
          "Type":"AWS::ElastiCache::ParameterGroup",
          "Properties":{

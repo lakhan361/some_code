@@ -29,6 +29,7 @@ pipeline {
           cd $CURRENT_DIRECTORY
           echo $INSTANCE_TYPE
           TEMPLATE_PATH=/var/jenkins_home/workspace/Test123/test.json
+          StackNamePrefix=$STACK_NAME
           #aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"="Jenkins" "Key"="Jenkins_Job","Value"="App-Services-Kafka-Setup"
           ls
 

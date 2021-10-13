@@ -6,13 +6,5 @@
 
     "ParameterValue": "${StackName_Prefix}"
 
-  },
-
-  {
-
-  "ParameterKey": "VpcId",
-
-  "ParameterValue": "${VpcId}"
-
-}
+  }
   ]

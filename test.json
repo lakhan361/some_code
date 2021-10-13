@@ -7,7 +7,7 @@
       },
       "VpcId":{
          "Type":"String",
-         "Default" : "vpc-02c9c27dcd12dd853"
+         "Default" : "vpc-0c7402ff0fa9642df"
       },
       "CacheNodeType":{
          "Type":"String"

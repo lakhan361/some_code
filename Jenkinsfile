@@ -20,7 +20,7 @@ pipeline {
           echo $INSTANCE_TYPE
           TEMPLATE_PATH=/var/jenkins_home/workspace/Test123/test.json
           echo $CACHENODETYPE
-          PARAMETERS_PATH=parameters.json 
+          PARAMETERS_PATH=test_parameters.json 
           envsubst < ${PARAMETERS_PATH} > parameters.json
           cat parameters.json
 

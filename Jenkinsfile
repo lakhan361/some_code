@@ -22,11 +22,18 @@ pipeline {
    defaultValue: 'cache.t2.micro',
    description: 'INSTANCE_TYPE'
  )
- string (
-name : 'num_node_groups',
-defaultValue: '1',
-description: 'num_node_groups'
-)
+
+   string (
+  name : 'num_node_groups',
+  defaultValue: '1',
+  description: 'num_node_groups'
+  )
+
+  string (
+ name : 'atrestencryptionenabled',
+ defaultValue: 'true',
+ description: 'num_node_groups'
+ )
 
   }
   stages {

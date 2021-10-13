@@ -83,7 +83,7 @@
 
         "ParameterKey": "AtRestEncryptionEnabled",
 
-        "ParameterValue": "atrestencryptionenabled"
+        "ParameterValue": "${atrestencryptionenabled}"
 
     },
 

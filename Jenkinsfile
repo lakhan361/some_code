@@ -11,18 +11,6 @@ pipeline {
       description: 'ENVIRONMENT'
     )
     string (
-      name : 'PRIVATE_SUBNET_GROUP_ONE',
-      description: 'DATA PRIVATE SUBNET_GROUP_ID'
-      )
-      string (
-      name : 'PRIVATE_SUBNET_GROUP_TWO',
-      description: 'DATA PRIVATE SUBNET_GROUP_ID'
-    )
-    string (
-      name : 'PRIVATE_SUBNET_GROUP_THREE',
-      description: 'DATA PRIVATE SUBNET_GROUP_ID'
-    )
-    string (
       name : 'INSTANCE_TYPE',
       defaultValue: 'kafka.m5.xlarge',
       description: 'INSTANCE_TYPE'

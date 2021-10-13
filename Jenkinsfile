@@ -35,6 +35,12 @@ pipeline {
  description: 'num_node_groups'
  )
 
+ string (
+name : 'cachetype',
+defaultValue: 'redis',
+description: 'cachetype'
+)
+
   }
   stages {
     stage('CF Stack Opreation ') {

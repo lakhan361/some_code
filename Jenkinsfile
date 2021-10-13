@@ -19,7 +19,7 @@ pipeline {
           cd $CURRENT_DIRECTORY
           echo $INSTANCE_TYPE
           TEMPLATE_PATH=/var/jenkins_home/workspace/Test123/test.json
-          CACHENODETYPE=$CACHENODETYPE
+          echo $CACHENODETYPE
 
           cat parameters.json
 

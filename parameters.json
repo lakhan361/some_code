@@ -91,7 +91,7 @@
 
         "ParameterKey": "TransitEncryptionEnabled",
 
-        "ParameterValue": "transitencryptionenabled"
+        "ParameterValue": "${transitencryptionenabled}"
 
     },
 

@@ -12,7 +12,7 @@ pipeline {
     )
     string (
       name : 'CacheNodeType',
-      defaultValue: 'cache.t2.micro',
+      defaultValue: 'cache.t2.medium',
       description: 'INSTANCE_TYPE'
     )
   }

@@ -8,6 +8,10 @@
       "VpcId":{
          "Type":"String",
          "Default" : "vpc-0607ea6166a8a7c44"
+      },
+      "CacheNodeType":{
+         "Type":"String",
+         "Default" : "cache.t2.micro"
       }
    },
    "Resources":{
@@ -59,7 +63,10 @@
             "AtRestEncryptionEnabled":true,
             "AutomaticFailoverEnabled":true,
             "AutoMinorVersionUpgrade":true,
-            "CacheNodeType":"cache.t2.micro",
+            "CacheNodeType":{
+              "Ref": "CacheNodeType"
+            },
+            "cache.t2.micro",
             "CacheParameterGroupName":{
                "Ref":"ParameterGroupRedis60"
             },

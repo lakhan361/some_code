@@ -11,7 +11,7 @@ pipeline {
       description: 'ENVIRONMENT'
     )
     string (
-      name : 'INSTANCE_TYPE',
+      name : 'CACHENODETYPE',
       defaultValue: 'kafka.m5.xlarge',
       description: 'INSTANCE_TYPE'
     )

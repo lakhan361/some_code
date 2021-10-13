@@ -40,6 +40,11 @@ name : 'cachetype',
 defaultValue: 'redis',
 description: 'cachetype'
 )
+string (
+name : 'transitencryptionenabled',
+defaultValue: 'true',
+description: 'transitencryptionenabled'
+)
 
   }
   stages {

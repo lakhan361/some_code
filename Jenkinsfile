@@ -21,7 +21,7 @@ pipeline {
           TEMPLATE_PATH=/var/jenkins_home/workspace/Test123/test.json
 
           PARAMETERS_PATH=test_parameters.json
-asddasda
+
           envsubst < ${PARAMETERS_PATH} > parameters.json
 
           cat parameters.json

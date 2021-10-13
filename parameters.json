@@ -7,7 +7,6 @@
         "ParameterValue": "${cacheinstancetype}"
 
     },
-
     {
 
         "ParameterKey": "CacheSubnetGroup",

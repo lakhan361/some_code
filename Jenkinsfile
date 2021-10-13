@@ -12,7 +12,7 @@ pipeline {
     )
     string (
       name : 'CacheNodeType',
-      defaultValue: 'kafka.m5.xlarge',
+      defaultValue: 'cache.t2.micro',
       description: 'INSTANCE_TYPE'
     )
   }

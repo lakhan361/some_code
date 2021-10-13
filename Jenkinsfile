@@ -12,7 +12,7 @@ pipeline {
     )
     string (
    name : 'cacheinstancetype',
-   defaultValue: 'cache.t2.micro', 
+   defaultValue: 'cache.t2.micro',
    description: 'INSTANCE_TYPE'
  )
 
@@ -30,7 +30,7 @@ pipeline {
 
           envsubst < ${PARAMETERS_PATH} > parameters.json
 
-          cat parameters.json
+          cat test_parameters.json
 
           #aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"="Jenkins" "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
           ls

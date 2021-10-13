@@ -8,7 +8,7 @@
       "VpcId":{
          "Type":"String",
          "Default" : "vpc-02c9c27dcd12dd853"
-      }
+      },
       "CacheNodeType":{
          "Type":"String",
          "Default" : "cache.t2.micro"

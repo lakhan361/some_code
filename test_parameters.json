@@ -4,7 +4,7 @@
 
         "ParameterKey": "CacheInstanceType",
 
-        "ParameterValue": "cacheinstancetype"
+        "ParameterValue": "${cacheinstancetype}"
 
     },
 

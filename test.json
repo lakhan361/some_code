@@ -205,14 +205,6 @@
 
   },
 
-  "KmsKeyID": {
-
-    "Type": "String",
-
-    "Description": " KMS key id for encryption"
-
-  },
-
   "CacheReplicaPerNodeGroup": {
 
     "Type": "String",

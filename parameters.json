@@ -119,13 +119,7 @@
 
     },
 
-    {
 
-        "ParameterKey": "PreferredMaintenanceWindow",
-
-        "ParameterValue": "${maintenance_window}"
-
-    },
 
     {
 

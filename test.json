@@ -492,7 +492,7 @@
 
       ],
 
-      "PreferredMaintenanceWindow": "mon:07:30-mon:08:30",
+
 
       "SnapshotRetentionLimit": {
 

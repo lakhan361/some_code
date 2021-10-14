@@ -59,6 +59,12 @@ description: 'vpc_id'
 )
 
 string (
+name : 'snapshot_retention_limit',
+defaultValue: '0',
+description: 'snapshot_retention_limit'
+)
+
+string (
 name : 'cacheport',
 defaultValue: '6379',
 description: 'cacheport'

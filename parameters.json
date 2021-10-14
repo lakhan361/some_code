@@ -115,7 +115,7 @@
 
         "ParameterKey": "SnapshotRetentionLimit",
 
-        "ParameterValue": "snapshot_retention_limit"
+        "ParameterValue": "${snapshot_retention_limit}"
 
     },
 

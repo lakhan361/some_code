@@ -217,7 +217,7 @@
 
     "Type": "String",
 
-    "Description": " Weekly maintainance time window "
+    "Description": "mon:07:30-mon:08:30"
 
   },
 

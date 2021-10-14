@@ -70,7 +70,11 @@ defaultValue: '6379',
 description: 'cacheport'
 )
 
-
+string (
+name : 'cachesubnetgroup',
+defaultValue: 'lakhan-test',
+description: 'cachesubnetgroup'
+)
 
 string (
 name : 'maintenance_window',

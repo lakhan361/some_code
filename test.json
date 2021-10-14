@@ -205,7 +205,13 @@
 
   },
 
+  "KmsKeyID": {
 
+    "Type": "String",
+
+    "Description": " KMS key id for encryption"
+
+  },
 
   "CacheReplicaPerNodeGroup": {
 
@@ -473,6 +479,13 @@
         "Ref": "CacheType"
 
       },
+
+      "KmsKeyId": {
+
+        "Ref": "KmsKeyID"
+
+      },
+
       "EngineVersion": {
 
         "Ref": "CacheEngineVersion"

@@ -411,10 +411,8 @@
     "Properties": {
 
       "ReplicationGroupId": {
-
-        "Ref": "CacheName"
-
-      },
+               "Fn::Sub":"${AWS::StackName}"
+            },
 
       "AtRestEncryptionEnabled": {
 

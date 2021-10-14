@@ -221,13 +221,7 @@
 
   },
 
-  "SnapshotWindow": {
 
-    "Type": "String",
-
-    "Description": " Time when daily snapshot will began"
-
-  },
 
   "SnapshotRetentionLimit": {
 
@@ -511,11 +505,6 @@
 
       },
 
-      "SnapshotWindow": {
-
-        "Ref": "SnapshotWindow"
-
-      },
 
       "Tags": [
 

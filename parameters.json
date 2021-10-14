@@ -43,7 +43,7 @@
 
         "ParameterKey": "CachePort",
 
-        "ParameterValue": "cacheport"
+        "ParameterValue": "${cacheport}"
 
     },
 

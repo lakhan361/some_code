@@ -58,6 +58,12 @@ defaultValue: 'vpc-093f1ed144fe2d24c',
 description: 'vpc_id'
 )
 
+string (
+name : 'cache_replica_per_nodegroup',
+defaultValue: '1',
+description: 'cache_replica_per_nodegroup'
+)
+
   }
   stages {
     stage('CF Stack Opreation ') {

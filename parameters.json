@@ -107,7 +107,7 @@
 
         "ParameterKey": "CacheReplicaPerNodeGroup",
 
-        "ParameterValue": "cache_replica_per_nodegroup"
+        "ParameterValue": "${cache_replica_per_nodegroup}"
 
     },
 

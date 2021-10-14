@@ -59,6 +59,12 @@ description: 'vpc_id'
 )
 
 string (
+name : 'cacheport',
+defaultValue: '6379',
+description: 'cacheport'
+)
+
+string (
 name : 'cache_replica_per_nodegroup',
 defaultValue: '1',
 description: 'cache_replica_per_nodegroup'

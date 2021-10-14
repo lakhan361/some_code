@@ -123,7 +123,7 @@
 
         "ParameterKey": "PreferredMaintenanceWindow",
 
-        "ParameterValue": "maintenance_window"
+        "ParameterValue": "${maintenance_window}"
 
     },
 

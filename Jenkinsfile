@@ -71,6 +71,12 @@ description: 'cacheport'
 )
 
 string (
+name : 'maintenance_window',
+defaultValue: 'mon:07:30-mon:08:30',
+description: 'maintenance_window'
+)
+
+string (maintenance_window
 name : 'cache_replica_per_nodegroup',
 defaultValue: '1',
 description: 'cache_replica_per_nodegroup'

@@ -97,14 +97,6 @@
 
     {
 
-        "ParameterKey": "KmsKeyID",
-
-        "ParameterValue": "kms_key_id"
-
-    },
-
-    {
-
         "ParameterKey": "CacheReplicaPerNodeGroup",
 
         "ParameterValue": "${cache_replica_per_nodegroup}"

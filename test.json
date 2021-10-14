@@ -217,6 +217,8 @@
 
     "Type": "String",
 
+    "Default": "mon:07:30-mon:08:30",
+
     "Description": "mon:07:30-mon:08:30"
 
   },

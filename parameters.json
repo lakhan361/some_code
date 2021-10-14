@@ -17,6 +17,14 @@
 
     {
 
+        "ParameterKey": "PreferredMaintenanceWindow",
+
+        "ParameterValue": "${maintenance_window}" 
+
+    },
+
+    {
+
         "ParameterKey": "CacheType",
 
         "ParameterValue": "${cachetype}"

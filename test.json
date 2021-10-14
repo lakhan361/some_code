@@ -213,7 +213,13 @@
 
   },
 
+  "PreferredMaintenanceWindow": {
 
+  "Type": "String",
+
+  "Description": " Weekly maintainance time window "
+
+  },
 
   "SnapshotWindow": {
 
@@ -481,6 +487,11 @@
       },
 
       "ReplicationGroupDescription": "A redis cache cluster",
+      "PreferredMaintenanceWindow": {
+
+"Ref": "PreferredMaintenanceWindow"
+
+},
 
       "SecurityGroupIds": [
 

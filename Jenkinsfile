@@ -118,13 +118,13 @@ description: 'cache_replica_per_nodegroup'
 
           if ! aws cloudformation describe-stacks --region $AWS_REGION --stack-name $STACK_NAME ; then
 
-           aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"=${BUILD_USER} "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
+           aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"="${BUILD_USER}" "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
 
            aws cloudformation wait stack-create-complete --stack-name $STACK_NAME --region $AWS_REGION
 
          else
 
-           aws cloudformation update-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"=${BUILD_USER} "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
+           aws cloudformation update-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"="${BUILD_USER}" "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
 
            aws cloudformation wait stack-update-complete --stack-name $STACK_NAME --region $AWS_REGION
 

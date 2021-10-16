@@ -99,7 +99,7 @@ description: 'cache_replica_per_nodegroup'
       steps {
           wrap([$class: 'BuildUser']) {
           sh '''#!/bin/bash -xe
-          echo "${BUILD_USER}"
+          echo ${BUILD_USER}
           echo "Full name :  $BUILD_USER"
           CURRENT_DIRECTORY=`pwd`
           cd $CURRENT_DIRECTORY
@@ -113,18 +113,18 @@ description: 'cache_replica_per_nodegroup'
           cat test_parameters.json
 
 
-          #aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"="${BUILD_USER}" "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
+          #aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"=${BUILD_USER} "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
 
 
           if ! aws cloudformation describe-stacks --region $AWS_REGION --stack-name $STACK_NAME ; then
 
-           aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"="${BUILD_USER}" "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
+           aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"=${BUILD_USER} "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
 
            aws cloudformation wait stack-create-complete --stack-name $STACK_NAME --region $AWS_REGION
 
          else
 
-           aws cloudformation update-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM
+           aws cloudformation update-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://test_parameters.json" --capabilities CAPABILITY_IAM --tags "Key"="Owner","Value"="Enablement" "Key"="CreatedBy","Value"=${BUILD_USER} "Key"="Jenkins_Job","Value"="App-Services-elasticache-Setup"
 
            aws cloudformation wait stack-update-complete --stack-name $STACK_NAME --region $AWS_REGION
 

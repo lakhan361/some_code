@@ -93,6 +93,9 @@ description: 'cache_replica_per_nodegroup'
     stage('CF Stack Opreation ') {
       steps {
           sh '''#!/bin/bash -xe
+
+
+          echo "Full name :  $BUILD_USER"
           CURRENT_DIRECTORY=`pwd`
           cd $CURRENT_DIRECTORY
 

@@ -91,18 +91,19 @@ description: 'cache_replica_per_nodegroup'
   }
 
 
+
+
   stages {
-      stage('build user') {
-        steps {
-          wrap([$class: 'BuildUser']) {
-            sh 'echo "${BUILD_USER}"'
-          }
+    stage('build user') {
+      steps {
+        wrap([$class: 'BuildUser']) {
+          sh 'echo "${BUILD_USER}"'
         }
       }
     }
+  
 
 
-  stages {
     stage('CF Stack Opreation ') {
       steps {
           sh '''#!/bin/bash -xe

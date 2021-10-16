@@ -94,21 +94,12 @@ description: 'cache_replica_per_nodegroup'
 
 
   stages {
-    stage('build user') {
-      steps {
-        wrap([$class: 'BuildUser']) {
-          sh 'echo "${BUILD_USER}"'
-        }
-      }
-    }
-  
-
 
     stage('CF Stack Opreation ') {
       steps {
+          wrap([$class: 'BuildUser']) {
           sh '''#!/bin/bash -xe
-
-
+         'echo "${BUILD_USER}"'
           echo "Full name :  $BUILD_USER"
           CURRENT_DIRECTORY=`pwd`
           cd $CURRENT_DIRECTORY
@@ -146,4 +137,5 @@ description: 'cache_replica_per_nodegroup'
       }
     }
   }
+}
 }

@@ -54,7 +54,7 @@ description: 'cacheengineversion'
 
 string (
 name : 'vpc_id',
-defaultValue: 'vpc-093f1ed144fe2d24c',
+defaultValue: 'vpc-0a1497dbb91dd4924,
 description: 'vpc_id'
 )
 

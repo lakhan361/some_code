@@ -99,7 +99,7 @@ description: 'cache_replica_per_nodegroup'
       steps {
           wrap([$class: 'BuildUser']) {
           sh '''#!/bin/bash -xe
-         'echo "${BUILD_USER}"'
+          echo "${BUILD_USER}"
           echo "Full name :  $BUILD_USER"
           CURRENT_DIRECTORY=`pwd`
           cd $CURRENT_DIRECTORY

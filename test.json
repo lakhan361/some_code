@@ -213,6 +213,15 @@
 
   },
 
+  "ElasticacheSecurityGroup": {
+
+    "Type": "String",
+
+    "Description": " Cache replica count per node group "
+
+  },
+
+
   "PreferredMaintenanceWindow": {
 
   "Type": "String",

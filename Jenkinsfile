@@ -83,6 +83,11 @@ description: 'maintenance_window'
 )
 
 string (
+name : 'elasticacheSecurityGroup',
+defaultValue: 'sg',
+description: 'elasticacheSecurityGroup'
+)
+string (
 name : 'cache_replica_per_nodegroup',
 defaultValue: '1',
 description: 'cache_replica_per_nodegroup'
@@ -130,12 +135,13 @@ description: 'cache_replica_per_nodegroup'
 
          fi
 
-
-
-
           '''
       }
     }
   }
 }
 }
+
+  Owner	bkathiriya@tavisca.com
+Product	App-Services
+Squad

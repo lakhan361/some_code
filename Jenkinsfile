@@ -84,7 +84,7 @@ description: 'maintenance_window'
 
 string (
 name : 'elasticacheSecurityGroup',
-defaultValue: 'sg',
+defaultValue: 'sg-0c7781ad400565805,sg-0dedea357209e52ed',
 description: 'elasticacheSecurityGroup'
 )
 string (

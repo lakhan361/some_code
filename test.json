@@ -413,15 +413,7 @@
 
 },
 
-      "SecurityGroupIds": [
-
-        {
-
-          "Ref": "ElasticacheSecurityGroup"
-
-        }
-
-      ],
+      "SecurityGroupIds": {"Fn::Split" : [ "," , {"Ref" : "ElasticacheSecurityGroup"} ]},,
 
 
 

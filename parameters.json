@@ -75,7 +75,7 @@
 
         "ParameterKey": "ElasticacheSecurityGroup",
 
-        "ParameterValue": "elasticacheSecurityGroup"
+        "ParameterValue": "${elasticacheSecurityGroup}"
 
     },
 

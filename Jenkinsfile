@@ -141,7 +141,3 @@ description: 'cache_replica_per_nodegroup'
   }
 }
 }
-
-  Owner	bkathiriya@tavisca.com
-Product	App-Services
-Squad

@@ -1,7 +1,7 @@
 [
     {
     "ParameterKey": "StackNamePrefix",
-    "ParameterValue": "${StackName_Prefix}"
+    "ParameterValue": "lakhan : ${StackName_Prefix}"
   },
   {
   "ParameterKey": "CacheNodeType",

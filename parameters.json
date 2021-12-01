@@ -2,7 +2,7 @@
 
     {
 
-        "ParameterKey": "CacheInstanceType",
+        "ParameterKey": "CacheIn1stanceType",
 
         "ParameterValue": "${cacheinstancetype}"
 

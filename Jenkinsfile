@@ -1,5 +1,5 @@
 pipeline {
-agent {  }
+agent { label "master" }
   stages {
     stage('CF Stack Opreation ') {
       steps {

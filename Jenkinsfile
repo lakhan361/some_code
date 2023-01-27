@@ -3,8 +3,7 @@ agent any
   stages {
     stage('CF Stack Opreation ') {
       steps {
-         node() {
-   // adds job parameters within jenkinsfile
+
    properties([
      parameters([
        booleanParam(
@@ -31,7 +30,7 @@ agent any
    print "DEBUG: parameter isBar = ${params.isBar}"
    sh "echo sh isBar is ${params.isBar}"
    if (params.isBar) { print "this should display" }
-}
+
       }
     }
   }

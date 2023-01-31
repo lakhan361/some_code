@@ -16,9 +16,7 @@ pipeline {
 
     stages {
         stage('CF Stack Opreation ') {
-            environment {
-                TAAS = '' // overrides pipeline level NAME env variable
-            }
+
 
             steps {
                 script {
@@ -42,18 +40,24 @@ pipeline {
 
                     switch (env.ENVIRONMENT) {
                                       case 'travel-qa':
-                            TAAS == "master"
+                            environment {
+                                TAAS == 'master'
+                            }
+
                             break
                                       case 'travel-stage':
-                            TAAS == "020Q1"
+                            environment {
+                                TAAS == 'master'
+                            }
                             break
                                       case 'travel-prod':
-                            TAAS == "2019Q4"
+                            environment {
+                                TAAS == 'master'
+                            }
                     }
 
                     env.ASP_ENV = INPUT_PARAMS_ENV.ASP_ENV
                     env.ENVIRONMENT = INPUT_PARAMS_ENV.ENVIRONMENT
-                   
                 }
 
                 script {

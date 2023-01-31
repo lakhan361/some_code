@@ -12,7 +12,7 @@ pipeline {
       description: 'Role for the task.'
     )
   }
-
+stages {
     stage('CF Stack Opreation') {
       steps {
           timeout(time: 360, unit: 'SECONDS') {
@@ -47,7 +47,7 @@ pipeline {
                   echo $TaasCultureS3Bucket
           '''
  
-            
+                          }
 
       }
       }

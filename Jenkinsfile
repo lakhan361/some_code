@@ -1,53 +1,43 @@
 pipeline {
-  agent { label "master" }
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-    skipStagesAfterUnstable()
-  }
+  agent any
   parameters {
-    choice (
-      name: 'ENVIRONMENT',
-      choices: ["partner-dev","travel-qa", "travel-prod", "travel-stage"],
-      description: 'ENVIRONMENT'
+
+    string (
+      name : 'AWS_REGION',
+      defaultValue: 'us-east-1',
+      description: 'AWS AccRegion'
     )
+    string (
+      name : 'S3_BUCKET_NAME',
+      defaultValue: 'nextgen-lambda-packages',
+      description: 'S3 Bucket for Code Package'
+    )
+
+
   }
+
   stages {
+
     stage('CF Stack Opreation ') {
       steps {
-          sh '''#!/bin/bash -xe
-          CURRENT_DIRECTORY=`pwd`
-          cd $CURRENT_DIRECTORY
-
-          TEMPLATE_PATH=/var/jenkins_home/workspace/Test123/test.json
-
-          PARAMETERS_PATH=test_parameters.json
-asddasda
-          envsubst < ${PARAMETERS_PATH} > parameters.json
-
-          cat parameters.json
-
-          #aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://parameters.json" --capabilities CAPABILITY_IAM 
-          ls
-
-          if ! aws cloudformation describe-stacks --region $AWS_REGION --stack-name $STACK_NAME ; then
-
-           aws cloudformation create-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://parameters.json" --capabilities CAPABILITY_IAM 
-
-           aws cloudformation wait stack-create-complete --stack-name $STACK_NAME --region $AWS_REGION
-
-         else
-
-           aws cloudformation update-stack --stack-name $STACK_NAME  --region $AWS_REGION  --template-body "file://"$TEMPLATE_PATH --parameters "file://parameters.json" --capabilities CAPABILITY_IAM
-
-           aws cloudformation wait stack-update-complete --stack-name $STACK_NAME --region $AWS_REGION
-
-         fi
-
-
-
-
-          '''
+          script{
+              def INPUT_PARAMS_ENV = input(
+                            message: 'Please Select Environment',
+                            ok: 'Next',
+                            parameters: [
+                              choice (
+                                      name : 'ASP_ENV',
+                                      choices: ['qa','stage','prod'],
+                                      description: 'ASP_ENV example qa,stage or prod'
+                                    )])
+                  env.ASP_ENV = INPUT_PARAMS_ENV
+            }
+ 
+      }
+      }
+      script{
+        update_card("${ASP_ENV}")
+        echo "Update Card Operation"
       }
     }
   }
-}

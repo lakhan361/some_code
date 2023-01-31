@@ -46,7 +46,7 @@ pipeline {
                             break
                                       case 'travel-prod':
                             TAAS = 2019Q4
-
+                    }
 
                     env.ASP_ENV = INPUT_PARAMS_ENV.ASP_ENV
                     env.ENVIRONMENT = INPUT_PARAMS_ENV.ENVIRONMENT

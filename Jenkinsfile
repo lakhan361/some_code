@@ -48,7 +48,7 @@ pipeline {
                                       case 'travel-qa':
 					echo "TAAS = ${env.TAAS}" // prints "FOO = bar"
 					withEnv(["TAAS=foobar"]) { // it can override any env variable
-					echo "TAAS = ${env.TAAS}" // prints "FOO = foobar"
+						echo "TAAS = ${env.TAAS}" }// prints "FOO = foobar"
                                       case 'travel-stage':
                                 env.TAAS = "master";
                          

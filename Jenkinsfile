@@ -1,39 +1,59 @@
 pipeline {
-  agent { label "master" }
-  parameters {
+  agent any
+    parameters {
     string (
       name : 'S3_BUCKET',
-      defaultValue: '',
+      defaultValue: 's3://test123456lakhan',
       description: 'Bucket_name.'
     )
     string (
       name : 'ROLE_ARN',
-      defaultValue: '',
+      defaultValue: 'arn:aws:iam::426765591064:role/bucket-policy-deletion-s3',
       description: 'Role for the task.'
     )
   }
-  stages {
-    stage('Automation') {
+
+    stage('CF Stack Opreation') {
       steps {
-          sh '''#!/bin/bash -xe
+          timeout(time: 360, unit: 'SECONDS') {
+          script {
+          def INPUT_PARAMS = input(
+                           message: 'Please Provide Parameters',
+                           ok: 'Next',
+                           parameters: [
+                                  choice (
+                                    name: 'ENVIRONMENT',
+                                    choices: ["travel-qa", "travel-stage", "travel-prod"],
+                                    description: 'ENVIRONMENT'
+                                  ),
 
-                aws sts assume-role --role-arn $ROLE_ARN --role-session-name TemporarySessionKeys --output json > assume-role-output.json
-                AWS_ACCESS_KEY_ID=$(jq .Credentials.AccessKeyId assume-role-output.json)
-                AWS_SECRET_ACCESS_KEY=$(jq .Credentials.SecretAccessKey assume-role-output.json)
-                AWS_SESSION_TOKEN=$(jq .Credentials.SessionToken assume-role-output.json)
 
+                          ])
+                          switch(env.ENVIRONMENT) {
+                                      case 'travel-qa':
+                                        TaasCultureS3Bucket = master
+                                        break
+                                      case 'travel-stage':
+                                        TaasCultureS3Bucket = 2020Q1
+                                        break 
+                                      case 'travel-prod':
+                                        TaasCultureS3Bucket = 2019Q4
+      
+                          env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT
 
-                export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:1:-1}"
-                export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:1:-1}"
-                export AWS_SESSION_TOKEN="${AWS_SESSION_TOKEN:1:-1}"
-
-                aws s3 rm s3://$S3_BUCKET/ --recursive --exclude "*" --include "lark*"
-
-                unset AWS_ACCESS_KEY_ID
-                unset AWS_SECRET_ACCESS_KEY
-                unset AWS_SESSION_TOKEN
+                          env.TaasCultureS3Bucket = $TaasCultureS3Bucket
+                         
+                 sh '''#!/bin/bash -xe
+                  echo $TaasCultureS3Bucket
           '''
+ 
+            
+
       }
+      }
+
     }
   }
 }
+
+

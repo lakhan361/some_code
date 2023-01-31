@@ -45,15 +45,11 @@ pipeline {
                                     ])
 
                     switch (env.ENVIRONMENT) {
-                                      case 'travel-qa':
-					echo "TAAS = ${env.TAAS}" // prints "FOO = bar"
-					withEnv(["TAAS=foobar"]) { // it can override any env variable
-						echo "TAAS = ${env.TAAS}" }// prints "FOO = foobar"
-                                      case 'travel-stage':
-                                env.TAAS = "master";
-                         
-                                      case 'travel-prod':
-                                env.TAAS = "master";
+                        case 'travel-qa':
+                            echo "TAAS = ${env.TAAS}" 
+                            withEnv(["TAAS=foobar"]) { 
+                            echo "TAAS = ${env.TAAS}" 
+                        }
                     }
 
 
@@ -63,6 +59,7 @@ pipeline {
 
                     env.ASP_ENV = INPUT_PARAMS_ENV.ASP_ENV
                     env.ENVIRONMENT = INPUT_PARAMS_ENV.ENVIRONMENT
+                    echo "Update Card Operation ${ASP_ENV} ${ENVIRONMENT} ${TAAS}"
                 }
 
                 script {

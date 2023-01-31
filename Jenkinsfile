@@ -1,19 +1,10 @@
 pipeline {
-  agent { label "master" }
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-    skipStagesAfterUnstable()
-  }
-  parameters {
-    choice (
-      name: 'ENVIRONMENT',
-      choices: ["partner-dev","travel-qa", "travel-prod", "travel-stage"],
-      description: 'ENVIRONMENT'
-    )
-  }
-  
-  
-            def INPUT_PARAMS = input(
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                script {
+                      def INPUT_PARAMS = input(
                            message: 'Please Provide Parameters',
                            ok: 'Next',
                            parameters: [
@@ -22,7 +13,10 @@ pipeline {
                                     choices: ["travel-qa", "travel-stage", "travel-prod"],
                                     description: 'ENVIRONMENT'
                                   ),
-                                  if ($ENVIRONMENT == "trav" 
+                                  if ($ENVIRONMENT == "trav") {
+
+                                    
+                                  }
                                   string (
                                     name : 'TaasCultureS3Bucket',
                                     description: 'Please provide bucket name where published file needs to be stored for taas flow',
@@ -34,17 +28,15 @@ pipeline {
                                     defaultValue: 'orxe-taas-culture-qa'
                                   )
                           ])
-  stages {
-    stage('CF Stack Opreation ') {
-      steps {
-          sh '''#!/bin/bash -xe
-          CURRENT_DIRECTORY=`pwd`
-          cd $CURRENT_DIRECTORY
-          echo "lakhan is here"
+                    if (env.BRANCH_NAME == 'main') {
+                        echo 'Hello from main branch'
+                    }  else {
+                        sh "echo 'Hello from ${env.BRANCH_NAME} branch!'"
+                    }
+                    }
+              
 
-
-          '''
-      }
+            }
+        }
     }
-  }
 }

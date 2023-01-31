@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('CF Stack Opreation ') {
             environment {
-                TAAS = 'Alan' // overrides pipeline level NAME env variable
+                TAAS = '' // overrides pipeline level NAME env variable
             }
 
             steps {

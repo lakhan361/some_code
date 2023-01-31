@@ -1,71 +1,45 @@
 pipeline {
     agent any
 
-
-    	environment{
-		TAAS = "Joe"
-
-}
-
-    parameters {
-        string(
-      name : 'AWS_REGION',
-      defaultValue: 'us-east-1',
-      description: 'AWS AccRegion'
-    )
-        string(
-      name : 'S3_BUCKET_NAME',
-      defaultValue: 'nextgen-lambda-packages',
-      description: 'S3 Bucket for Code Package'
-    )
+    environment {
+        FOO = "bar"
+        NAME = "Joe"
     }
 
     stages {
-        stage('CF Stack Opreation ') {
-
+        stage("Env Variables") {
+            environment {
+                NAME = "Alan" // overrides pipeline level NAME env variable
+                BUILD_NUMBER = "2" // overrides the default BUILD_NUMBER
+            }
 
             steps {
+                echo "FOO = ${env.FOO}" // prints "FOO = bar"
+                echo "NAME = ${env.NAME}" // prints "NAME = Alan"
+                echo "BUILD_NUMBER =  ${env.BUILD_NUMBER}" // prints "BUILD_NUMBER = 2"
+
                 script {
-                    def INPUT_PARAMS_ENV = input(
-                            message: 'Please Select Environment',
-                            ok: 'Next',
-                            parameters: [
-                              choice(
-                                      name : 'ASP_ENV',
-                                      choices: ['qa', 'stage', 'prod'],
-                                      description: 'ASP_ENV example qa,stage or prod'
-                                    ),
+                    env.SOMETHING = "1" // creates env.SOMETHING variable
+                }
+            }
+        }
 
-                                    choice(
-                                    name: 'ENVIRONMENT',
-                                    choices: ['travel-qa', 'travel-stage', 'travel-prod'],
-                                    description: 'ENVIRONMENT'
-                                  )
-
-                                    ])
-
-                    switch (env.ENVIRONMENT) {
-                                      case 'travel-qa':
-                                env.TAAS = "master";
-                        
-                                      case 'travel-stage':
-                                env.TAAS = "master";
-                         
-                                      case 'travel-prod':
-                                env.TAAS = "master";
-                    }
-
-
-
-
-
-
-                    env.ASP_ENV = INPUT_PARAMS_ENV.ASP_ENV
-                    env.ENVIRONMENT = INPUT_PARAMS_ENV.ENVIRONMENT
+        stage("Override Variables") {
+            steps {
+                script {
+                    env.FOO = "IT DOES NOT WORK!" // it can't override env.FOO declared at the pipeline (or stage) level
+                    env.SOMETHING = "2" // it can override env variable created imperatively
                 }
 
-                script {
-                    echo "Update Card Operation ${ASP_ENV} ${ENVIRONMENT} ${TAAS}"
+                echo "FOO = ${env.FOO}" // prints "FOO = bar"
+                echo "SOMETHING = ${env.SOMETHING}" // prints "SOMETHING = 2"
+
+                withEnv(["FOO=foobar"]) { // it can override any env variable
+                    echo "FOO = ${env.FOO}" // prints "FOO = foobar"
+                }
+
+                withEnv(["BUILD_NUMBER=1"]) {
+                    echo "BUILD_NUMBER = ${env.BUILD_NUMBER}" // prints "BUILD_NUMBER = 1"
                 }
             }
         }

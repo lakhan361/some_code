@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+
+    	environment{
+		TAAS = "Joe"
+
+}
+
     parameters {
         string(
       name : 'AWS_REGION',
@@ -40,20 +46,13 @@ pipeline {
 
                     switch (env.ENVIRONMENT) {
                                       case 'travel-qa':
-                            environment {
-                                TAAS == 'master'
-                            }
-
+                                env.TAAS = 'master'
                             break
                                       case 'travel-stage':
-                            environment {
-                                TAAS == 'master'
-                            }
+                                env.TAAS = 'master'
                             break
                                       case 'travel-prod':
-                            environment {
-                                TAAS == 'master'
-                            }
+                                env.TAAS = 'master'
                     }
 
                     env.ASP_ENV = INPUT_PARAMS_ENV.ASP_ENV

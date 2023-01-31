@@ -1,16 +1,12 @@
 pipeline {
     agent any
-
     environment {
         FOO = "bar"
 
     }
-
     stages {
         stage("Env Variables") {
             steps {
-
-
                 script {
 
                 def INPUT_PARAMS = input(
@@ -23,6 +19,8 @@ pipeline {
                                     description: 'ENVIRONMENT'
                                   )
                           ])
+                }
+                script{
                 switch (env.ENVIRONMENT) {
                         case 'travel-qa':
                             echo "FOO = ${env.FOO}" // prints "FOO = bar"
@@ -30,10 +28,8 @@ pipeline {
                             echo "FOO = ${env.FOO}" // prints "FOO = foobar"
                 }
                 }
-
             }
             }
         }
-
         }
     }

@@ -46,13 +46,13 @@ pipeline {
 
                     switch (env.ENVIRONMENT) {
                                       case 'travel-qa':
-                                env.TAAS = "master"
-                            break
+                                env.TAAS = "master";
+                        
                                       case 'travel-stage':
-                                env.TAAS = "master"
-                            break
+                                env.TAAS = "master";
+                         
                                       case 'travel-prod':
-                                env.TAAS = "master"
+                                env.TAAS = "master";
                     }
 
 

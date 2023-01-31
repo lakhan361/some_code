@@ -36,8 +36,8 @@ pipeline {
       
       
       script{
-        update_card("${ASP_ENV}")
-        echo "Update Card Operation"
+        
+        echo "Update Card Operation ${ASP_ENV}"
       }
     }
   }

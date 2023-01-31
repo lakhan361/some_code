@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     parameters {
         string(
       name : 'AWS_REGION',
@@ -11,11 +12,14 @@ pipeline {
       defaultValue: 'nextgen-lambda-packages',
       description: 'S3 Bucket for Code Package'
     )
-
     }
 
     stages {
         stage('CF Stack Opreation ') {
+            environment {
+                TAAS = 'Alan' // overrides pipeline level NAME env variable
+            }
+
             steps {
                 script {
                     def INPUT_PARAMS_ENV = input(
@@ -36,7 +40,6 @@ pipeline {
 
                                     ])
 
-
                     switch (env.ENVIRONMENT) {
                                       case 'travel-qa':
                             TAAS = master
@@ -50,7 +53,7 @@ pipeline {
 
                     env.ASP_ENV = INPUT_PARAMS_ENV.ASP_ENV
                     env.ENVIRONMENT = INPUT_PARAMS_ENV.ENVIRONMENT
-                    env.TAAS =TAAS
+                    env.TAAS = TAAS
                 }
 
                 script {

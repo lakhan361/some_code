@@ -43,10 +43,7 @@ stages {
 
                           env.TaasCultureS3Bucket = $TaasCultureS3Bucket
                          
-                 sh '''#!/bin/bash -xe
-                  echo $TaasCultureS3Bucket
-                  echo $ENVIRONMENT
-          '''
+ echo "Deploying ${env.ENVIRONMENT}. Have a nice day."
  
                           }
 

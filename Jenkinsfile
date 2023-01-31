@@ -36,12 +36,25 @@ pipeline {
 
                                     ])
 
+
+                    switch (env.ENVIRONMENT) {
+                                      case 'travel-qa':
+                            TAAS = master
+                            break
+                                      case 'travel-stage':
+                            TAAS = 2020Q1
+                            break
+                                      case 'travel-prod':
+                            TAAS = 2019Q4
+
+
                     env.ASP_ENV = INPUT_PARAMS_ENV.ASP_ENV
                     env.ENVIRONMENT = INPUT_PARAMS_ENV.ENVIRONMENT
+                    env.TAAS =TAAS
                 }
 
                 script {
-                    echo "Update Card Operation ${ASP_ENV} ${ENVIRONMENT}"
+                    echo "Update Card Operation ${ASP_ENV} ${ENVIRONMENT} ${TAAS}"
                 }
             }
         }

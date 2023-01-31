@@ -45,6 +45,7 @@ stages {
                          
                  sh '''#!/bin/bash -xe
                   echo $TaasCultureS3Bucket
+                  echo $ENVIRONMENT
           '''
  
                           }

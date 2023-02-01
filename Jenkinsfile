@@ -47,9 +47,5 @@ pipeline {
                         } 
                     } 
 
-                 else 
-                     { 
-                        echo 'no values are passed' 
-                     } 
                 } 
       }}}} 

@@ -18,13 +18,12 @@ stages {
                                       description: 'ASP_ENV example qa,stage or prod'
                                     )])
                   env.ASP_ENV = INPUT_PARAMS_ENV
-            }
-          steps{
-          if (env.ASP_ENV == 'stage'){
-            echo "hello world${env.ASP_ENV}"
-          }
-          else
-          {
-              echo "no"
-          }}
+                  if (env.ASP_ENV == 'stage'){
+                    echo "hello world${env.ASP_ENV}"
+                     }
+                 else
+                     {
+                    echo "no"
+                    }
+                  }
       }}}}

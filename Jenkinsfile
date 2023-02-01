@@ -19,5 +19,11 @@ stages {
                                     )])
                   env.ASP_ENV = INPUT_PARAMS_ENV
             }
-          echo "${env.ASP_ENV}"
+          if (env.ASP_ENV == 'stage'){
+            echo "hello world${env.ASP_ENV}"
+          }
+          else
+          {
+              echo "no"
+          }
       }}}}

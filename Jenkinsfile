@@ -16,6 +16,7 @@ pipeline {
                                     description: 'ENVIRONMENT'
                                   )
                           ])
+                    env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT
                 }
 
           script{

@@ -18,7 +18,7 @@ pipeline {
                           ])
                 }
 
-                echo ' $ENVIRONMENT ${env.ENVIRONMENT}'
+                echo "$ENVIRONMENT ${env.ENVIRONMENT}"
         }
         }
     }

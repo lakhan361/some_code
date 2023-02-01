@@ -22,6 +22,7 @@ pipeline {
                         echo "hello world${env.ASP_ENV}"
                         env.USER_ID = 'lark'
                         withEnv(["USER_ID=lark"]){}
+                        echo "${env.USER_ID}"
 
                     }
                  else

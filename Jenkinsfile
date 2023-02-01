@@ -18,7 +18,7 @@ pipeline {
                           ])
                 }
                 script {
-                    env.ENVIRONMENT = $ENVIRONMENT
+                    ENVIRONMENT = $ENVIRONMENT
                 
             }
                 sh 'current value $ENVIRONMENT ${env.ENVIRONMENT}'

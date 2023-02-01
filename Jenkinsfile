@@ -21,7 +21,8 @@ pipeline {
                     env.ENVIRONMENT = $ENVIRONMENT
                 
             }
-                sh 'current value $ENVIRONMET ${ENVIRONMENT}'
+                sh 'current value $ENVIRONMENT ${env.ENVIRONMENT}'
         }
         }
     }
+}

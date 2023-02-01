@@ -19,8 +19,5 @@ stages {
                                     )])
                   env.ASP_ENV = INPUT_PARAMS_ENV
             }
-          script{
-           
-          echo "Verify Card Operation "${ASP_ENV}""
-          }
+          echo "${env.ASP_ENV}"
       }}}}

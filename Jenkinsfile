@@ -34,7 +34,7 @@ pipeline {
                      { 
                         echo "hello world${env.ASP_ENV}" 
                         withEnv(["CLOUDFRONT_ID=EX08MEKJHBTBJ", "LAMBDA_SECURITY_GROUPS=sg-0c3132d15c2fe16aa", "TAAS_CULTURE_S3BUCKET=nextgen-translation-service-stage","ORXE_CULTURE_S3BUCKET=orxe-taas-culture-stage"]){ 
-                        echo "${env.CLOUDFRONT_ID}  ${env.LAMBDA_SECURITY_GROUPS} ${env.TAAS_CULTURE_S3BUCKET} ${env.ORXE_CULTURE_S3BUCKET}" 
+                        echo "CLOUDFRONT_ID:${env.CLOUDFRONT_ID}  LAMBDA_SECURITY_GROUPS:${env.LAMBDA_SECURITY_GROUPS} TAAS_CULTURE_S3BUCKET : ${env.TAAS_CULTURE_S3BUCKET} ORXE_CULTURE_S3BUCKET :${env.ORXE_CULTURE_S3BUCKET}" 
                         } 
 
                     } 
@@ -43,7 +43,7 @@ pipeline {
                      { 
                         echo "hello world${env.ASP_ENV}" 
                         withEnv(["CLOUDFRONT_ID=E1J9FOQMD3689N", "LAMBDA_SECURITY_GROUPS=sg-0ddd5b934bf42cbcc", "TAAS_CULTURE_S3BUCKET=nextgen-translation-service","ORXE_CULTURE_S3BUCKET=orxe-taas-culture"]){ 
-                        echo "${env.CLOUDFRONT_ID}  ${env.LAMBDA_SECURITY_GROUPS} ${env.TAAS_CULTURE_S3BUCKET} ${env.ORXE_CULTURE_S3BUCKET}" 
+                        echo "CLOUDFRONT_ID:${env.CLOUDFRONT_ID}  LAMBDA_SECURITY_GROUPS:${env.LAMBDA_SECURITY_GROUPS} TAAS_CULTURE_S3BUCKET : ${env.TAAS_CULTURE_S3BUCKET} ORXE_CULTURE_S3BUCKET :${env.ORXE_CULTURE_S3BUCKET}" 
                         } 
                     } 
 

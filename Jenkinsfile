@@ -6,6 +6,9 @@ pipeline {
 stages {
 
     stage('CF Stack Opreation ') {
+      environment{
+        USER_ID = "test"
+      }
       steps {
           script{
               def INPUT_PARAMS_ENV = input(
@@ -20,6 +23,8 @@ stages {
                   env.ASP_ENV = INPUT_PARAMS_ENV
                   if (env.ASP_ENV == 'stage'){
                     echo "hello world${env.ASP_ENV}"
+                    withEnv(["USER_ID=stage"])
+                      echo "${env.USER_ID}"
                      }
                  else
                      {

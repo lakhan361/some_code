@@ -26,7 +26,7 @@ pipeline {
                      { 
                         echo "hello world${env.ASP_ENV}" 
                         withEnv(["CLOUDFRONT_ID=EVAXRM1VVZ1KW", "LAMBDA_SECURITY_GROUPS=sg-0b359f227f7c95168", "TAAS_CULTURE_S3BUCKET=nextgen-translation-service-qa","ORXE_CULTURE_S3BUCKET=orxe-taas-culture-qa"]){ 
-                        echo "${env.CLOUDFRONT_ID}  ${env.LAMBDA_SECURITY_GROUPS} ${env.TAAS_CULTURE_S3BUCKET} ${env.ORXE_CULTURE_S3BUCKET}" 
+                        echo "CLOUDFRONT_ID:${env.CLOUDFRONT_ID}  LAMBDA_SECURITY_GROUPS:${env.LAMBDA_SECURITY_GROUPS} TAAS_CULTURE_S3BUCKET : ${env.TAAS_CULTURE_S3BUCKET} ORXE_CULTURE_S3BUCKET :${env.ORXE_CULTURE_S3BUCKET}" 
                         } 
                     } 
 

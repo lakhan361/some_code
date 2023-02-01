@@ -4,9 +4,9 @@ pipeline {
         stage('CF Stack Opreation ') { 
 
             environment { 
-                CLOUDFRONT_ID = "test", 
-                LAMBDA_SECURITY_GROUPS = "test", 
-                TAAS_CULTURE_S3BUCKET = "test", 
+                CLOUDFRONT_ID = "test"
+                LAMBDA_SECURITY_GROUPS = "test"
+                TAAS_CULTURE_S3BUCKET = "test"
                 ORXE_CULTURE_S3BUCKET = "null" 
             } 
             steps { 

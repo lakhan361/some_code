@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    environment {
-        FOO = "bar"
 
-    }
     stages {
         stage("Env Variables") {
             steps {
@@ -20,8 +17,11 @@ pipeline {
                                   )
                           ])
                 }
-                echo "${env.ENVIRONMENT}"
+                script {
+                    env.ENVIRONMENT = $ENVIRONMENT
+                
             }
+                sh 'current value $ENVIRONMET ${ENVIRONMENT}'
         }
         }
     }

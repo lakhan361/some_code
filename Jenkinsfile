@@ -20,15 +20,7 @@ pipeline {
                                   )
                           ])
                 }
-                script{
-                switch (env.ENVIRONMENT) {
-                        case 'travel-qa':
-                            echo "FOO = ${env.FOO}" // prints "FOO = bar"
-                            withEnv(["FOO=foobar"]) { // it can override any env variable
-                            echo "FOO = ${env.FOO}" // prints "FOO = foobar"
-                }
-                }
-            }
+                echo $ENVIRONMENT
             }
         }
         }

@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('CF Stack Opreation ') {
             environment {
-                USER_ID = 'test'
+                USER_ID = 'null'
             }
             steps {
                 script {

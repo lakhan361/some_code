@@ -18,7 +18,7 @@ pipeline {
                           ])
                 }
 
-                sh 'current value $ENVIRONMENT ${env.ENVIRONMENT}'
+                echo ' $ENVIRONMENT ${env.ENVIRONMENT}'
         }
         }
     }

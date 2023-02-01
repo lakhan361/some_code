@@ -4,10 +4,10 @@ pipeline {
         stage('CF Stack Opreation ') { 
 
             environment { 
-                CLOUDFRONT_ID = 'null', 
-                LAMBDA_SECURITY_GROUPS = 'null', 
-                TAAS_CULTURE_S3BUCKET = 'null', 
-                ORXE_CULTURE_S3BUCKET = 'null' 
+                CLOUDFRONT_ID = "test", 
+                LAMBDA_SECURITY_GROUPS = "test", 
+                TAAS_CULTURE_S3BUCKET = "test", 
+                ORXE_CULTURE_S3BUCKET = "null" 
             } 
             steps { 
                 script { 

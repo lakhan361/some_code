@@ -1,29 +1,33 @@
 pipeline {
     agent any
 
-    stages {
-        stage("Env Variables") {
-            steps {
-                script {
 
-                def INPUT_PARAMS = input(
-                           message: 'Please Provide Parameters',
-                           ok: 'Next',
-                           parameters: [
-                                  choice(
-                                    name: 'ENVIRONMENT',
-                                    choices: ['travel-qa', 'travel-stage', 'travel-prod'],
-                                    description: 'ENVIRONMENT'
-                                  )
-                          ])
-                    env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT
-                }
 
-          script{
-     
-              echo "Verify Card Operation ${ENVIRONMENT}" 
-          }
+stages {
+    stage("S3 Package Push") {
+
+      steps {
+        script {
+          deploy()
         }
-        }
+      }
     }
-}
+    stage('CF Stack Opreation ') {
+      steps {
+          script{
+              def INPUT_PARAMS_ENV = input(
+                            message: 'Please Select Environment',
+                            ok: 'Next',
+                            parameters: [
+                              choice (
+                                      name : 'ASP_ENV',
+                                      choices: ['qa','stage','prod'],
+                                      description: 'ASP_ENV example qa,stage or prod'
+                                    )])
+                  env.ASP_ENV = INPUT_PARAMS_ENV
+            }
+          script{
+           
+          echo "Verify Card Operation "${ASP_ENV}""
+          }
+      }}}}

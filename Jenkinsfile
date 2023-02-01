@@ -20,7 +20,7 @@ pipeline {
                                   )
                           ])
                 }
-                echo ${env.ENVIRONMENT}
+                echo "${env.ENVIRONMENT}"
             }
         }
         }

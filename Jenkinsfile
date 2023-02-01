@@ -18,7 +18,10 @@ pipeline {
                           ])
                 }
 
-                echo "$ENVIRONMENT ${env.ENVIRONMENT}"
+          script{
+     
+              echo "Verify Card Operation ${ENVIRONMENT}" 
+          }
         }
         }
     }

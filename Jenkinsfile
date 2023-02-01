@@ -4,14 +4,7 @@ pipeline {
 
 
 stages {
-    stage("S3 Package Push") {
 
-      steps {
-        script {
-          deploy()
-        }
-      }
-    }
     stage('CF Stack Opreation ') {
       steps {
           script{
